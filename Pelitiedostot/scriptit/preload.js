@@ -17,6 +17,7 @@ preload.prototype = {
 		this.game.load.audio("menumusa", "aanet/menumusa.mp3")
 		this.game.load.image("menupic", "kuvat/menupic.png")
 		this.game.load.image("retrypic", "kuvat/retrypic.png")
+		this.game.load.image("submit", "kuvat/submitScore.png")
 	},
   	create: function(){
 		this.game.state.start("Menu");
