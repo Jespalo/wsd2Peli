@@ -11,7 +11,7 @@ window.addEventListener("message", function(evt) {
    	} else if (evt.data !== undefined && evt.data.messageType === "ERROR") {
    		alert(evt.data.info);
    	}
-   	console.log("LOAD responded to!" + loadedscore);
+   	console.log("LOAD responded to!" + evt.messageType);
 	});
 
 menu.prototype = {
@@ -29,7 +29,7 @@ menu.prototype = {
 	
 	playTheGame: function(){
 		this.menumusa.stop();
-		this.game.state.start("Game", true, false, this.loadedscore);
+		this.game.state.start("Game");
 	},
 	
 	playLoad: function(){
@@ -38,7 +38,7 @@ menu.prototype = {
   		};
   		window.parent.postMessage(msg, "*");
   		console.log("Ladattu");
-  		console.log(loadedscore);
+  		console.log("Nappipaino:" + loadedscore);
   		this.game.state.start("Game", true, false, this.loadedscore);
 	},
 
