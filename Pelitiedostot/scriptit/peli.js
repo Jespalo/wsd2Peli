@@ -129,9 +129,8 @@ create: function() {
 	else {
 		this.score = 0;
 	}
-	this.scoreText = 0;
+	this.scoreText = this.score;
 	this.scoreText = this.game.add.text(10, 10, this.scoreText, {font:'700 24px Cabin', fill: '#ff6200'});
-	this.dadaText = this.game.add.text(200, 200, "naama:" + this.loadscore, {font:'700 24px Cabin', fill: '#ff6200'});
 
 	var saveButton = this.game.add.button(520, 10, "saveButton", this.saveGame, this);
 
