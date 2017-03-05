@@ -1,4 +1,19 @@
-var preload = function(game){}
+var preload = function(game){
+	this.loadedscore;
+}
+
+$(document).ready( function() {
+    "use strict";
+  		window.addEventListener("message", function(evt) {
+  			if (evt.data !== 'undefined' && evt.data.messageType === "LOAD") {
+    			console.log("LOAD responded to! " + parseInt(evt.data.gameState.score));
+    			this.loadedscore = evt.data.gameState.score;
+   			} else if (evt.data.messageType === "ERROR") {
+   				alert(evt.data.info);
+   				this.loadedscore = 0;
+   			}
+		});
+	}); 
  
 preload.prototype = {
 	preload: function(){ 
@@ -19,9 +34,19 @@ preload.prototype = {
 		this.game.load.image("retrypic", "kuvat/retrypic.png")
 		this.game.load.image("submit", "kuvat/submitScore.png")
 		this.game.load.image("load", "kuvat/loadButton.png")
+		this.loadLoad();
 	},
+
+	loadLoad: function(){
+		var msg = {
+			"messageType": "LOAD_REQUEST",
+  		};
+  		window.parent.postMessage(msg, "*");
+  		console.log("Alotettiin");
+	},
+
   	create: function(){
-		this.game.state.start("Menu");
+		this.game.state.start("Menu", true, false, this.loadedscore;);
 	}
 
 }

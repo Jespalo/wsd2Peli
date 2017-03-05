@@ -3,22 +3,11 @@ var menu = function(game){
 	this.loadedscore;
 }
 
-$(document).ready( function() {
-    "use strict";
-  		window.addEventListener("message", function(evt) {
-  			if (evt.data !== 'undefined' && evt.data.messageType === "LOAD") {
-    			console.log("LOAD responded to! " + parseInt(evt.data.gameState.score));
-    			this.loadedscore = evt.data.gameState.score;
-   			} else if (evt.data.messageType === "ERROR") {
-   				alert(evt.data.info);
-   				this.loadedscore = 0;
-   			}
-		});
-		this.loadLoad();
-	});    
-
-
 menu.prototype = {
+
+	init: function(loadedscore){
+		loadscore = loadedscore;
+	},
 
 	create: function(){
 		var background = this.game.add.sprite(0,0, 'menubground');
@@ -32,16 +21,7 @@ menu.prototype = {
 	playTheGame: function(){
 		this.menumusa.stop();
 		console.log(this.loadedscore);
-		this.game.state.start("Game",true,false, this.loadedscore);
-	},
-
-
-	loadLoad: function(){
-		var msg = {
-			"messageType": "LOAD_REQUEST",
-  		};
-  		window.parent.postMessage(msg, "*");
-  		console.log("Alotettiin");
+		this.game.state.start("Game",true,false, this.loadscore);
 	},
 
 }

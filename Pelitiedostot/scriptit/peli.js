@@ -8,7 +8,7 @@ var thegame = function(game){
 	var music;
 	var crash;
 	this.speed = 32;
-	loadscore = null;
+	loscore = null;
 
 	this.currentMovement = 2;
 	this.movement = {
@@ -32,8 +32,8 @@ preload: function() {
 	this.game.load.image('saveButton', 'kuvat/saveButton.png');
 },
 
-init: function(loadedscore){
-		loadscore = loadedscore;
+init: function(loadscore){
+		loscore = loadscore;
 	},
 
 pickupCollect: function(player, pickup) {
@@ -123,8 +123,8 @@ create: function() {
 
 
 	// score
-	if(this.loadscore > 0){
-		this.score = this.loadscore;
+	if(this.loscore > 0){
+		this.score = this.loscore;
 	}
 	else {
 		this.score = 0;
