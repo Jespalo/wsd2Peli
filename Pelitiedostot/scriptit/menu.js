@@ -5,8 +5,8 @@ var menu = function(game){
 
 window.addEventListener("message", function(evt) {
   	if (evt.data.messageType === "LOAD") {
-    	loadedscore = evt.data.gameState.score;
-    	console.log("LOAD responded to!" + evt.data.gameState.score);
+    	loadedscore = parseInt(evt.data.gameState.score);
+    	console.log("LOAD responded to!" + parseInt(evt.data.gameState.score));
    	} else if (evt.data.messageType === "ERROR") {
    		alert(evt.data.info);
    	}
