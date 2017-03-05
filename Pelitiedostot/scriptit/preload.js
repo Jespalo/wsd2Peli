@@ -7,7 +7,7 @@ $(document).ready( function() {
   		window.addEventListener("message", function(evt) {
   			if (evt.data !== 'undefined' && evt.data.messageType === "LOAD") {
     			console.log("LOAD responded to! " + parseInt(evt.data.gameState.score));
-    			this.loadedscore = evt.data.gameState.score;
+    			this.loadedscore = parseInt(evt.data.gameState.score);
    			} else if (evt.data.messageType === "ERROR") {
    				alert(evt.data.info);
    				this.loadedscore = 0;
@@ -16,7 +16,7 @@ $(document).ready( function() {
 	}); 
  
 preload.prototype = {
-	
+
 	preload: function(){ 
 		this.game.load.spritesheet("loadbar", "kuvat/loadbar.png",32,32)
           var loadingBar = this.add.sprite(160,240,"loadbar");
