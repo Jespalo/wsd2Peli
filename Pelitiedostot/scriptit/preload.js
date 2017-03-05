@@ -16,6 +16,7 @@ $(document).ready( function() {
 	}); 
  
 preload.prototype = {
+	
 	preload: function(){ 
 		this.game.load.spritesheet("loadbar", "kuvat/loadbar.png",32,32)
           var loadingBar = this.add.sprite(160,240,"loadbar");
