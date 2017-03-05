@@ -6,11 +6,11 @@ var menu = function(game){
 window.addEventListener("message", function(evt) {
 	console.log("aloitettu");
   	if (evt.data !== undefined && evt.data.messageType === "LOAD") {
-    	loadedscore = evt.data.gameState.score;
+    	loadedscore = evt.data.score;
    	} else if (evt.data !== undefined && evt.data.messageType === "ERROR") {
    		alert(evt.data.info);
    	}
-   	console.log("LOAD responded to!" + evt.messageType);
+   	console.log("LOAD responded to!" + evt.data.score);
 	});
 
 menu.prototype = {
