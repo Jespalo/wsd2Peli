@@ -204,7 +204,6 @@ saveGame: function() {
     "gameState": {
       "score": this.score
     }
-  };
   window.parent.postMessage(msg, "*");
 },
 
