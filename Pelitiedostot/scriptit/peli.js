@@ -200,11 +200,12 @@ takenCoords: function(x, y) {
 saveGame: function() {
 	this.game.paused = true;
 	var msg = {
-    "messageType": "SAVE",
-    "gameState": {
-      "score": this.score
-    }
-  window.parent.postMessage(msg, "*");
+    	"messageType": "SAVE",
+    	"gameState": {
+      		"score": this.score
+    	},
+	};
+  	window.parent.postMessage(msg, "*");
 },
 
 update: function() {
