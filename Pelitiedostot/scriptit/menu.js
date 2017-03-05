@@ -11,6 +11,7 @@ window.addEventListener("message", function(evt) {
    	} else if (evt.data !== undefined && evt.data.messageType === "ERROR") {
    		alert(evt.data.info);
    	}
+   	console.log("LOAD responded to!" + loadedscore);
 	});
 
 menu.prototype = {
