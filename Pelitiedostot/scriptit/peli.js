@@ -1,5 +1,5 @@
 var thegame = function(game){
-	this.score = this.loadedscore;
+	this.score = 0;
 	var scoreText;
 	var player;
 	var cursors;
@@ -8,6 +8,7 @@ var thegame = function(game){
 	var music;
 	var crash;
 	this.speed = 32;
+	loadscore = null;
 
 	this.currentMovement = 2;
 	this.movement = {
@@ -31,6 +32,9 @@ preload: function() {
 	this.game.load.image('saveButton', 'kuvat/saveButton.png');
 },
 
+init: function(loadedscore){
+		loadscore = loadedscore;
+	},
 
 pickupCollect: function(player, pickup) {
 
@@ -119,14 +123,15 @@ create: function() {
 
 
 	// score
-	if(this.loadedscore > 0){
-		this.score = this.loadedscore;
+	if(this.loadscore > 0){
+		this.score = this.loadscore;
 	}
 	else {
 		this.score = 0;
 	}
 	this.scoreText = 0;
 	this.scoreText = this.game.add.text(10, 10, this.scoreText, {font:'700 24px Cabin', fill: '#ff6200'});
+	this.dadaText = this.game.add.text(200, 200, "naama:" + this.loadscore, {font:'700 24px Cabin', fill: '#ff6200'});
 
 	var saveButton = this.game.add.button(520, 10, "saveButton", this.saveGame, this);
 
@@ -283,4 +288,16 @@ update: function() {
 
 
 },
+
+
+
+
+
+
 }
+
+
+
+
+
+

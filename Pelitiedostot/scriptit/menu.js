@@ -20,12 +20,12 @@ menu.prototype = {
 	playTheGame: function(){
 		this.menumusa.stop();
 		console.log(this.loadedscore);
-		this.game.state.start("Game",true,false,this.loadedscore);
+		this.game.state.start("Game",true,false, this.loadedscore);
 	},
 	
 	loadLoad: function(){
   		window.addEventListener("message", function(evt) {
-  			if (evt.data.messageType === "LOAD") {
+  			if (evt.data !== 'undefined' && evt.data.messageType === "LOAD") {
     			this.loadedscore = parseInt(evt.data.gameState.score);
     			console.log("LOAD responded to!" + parseInt(evt.data.gameState.score));
    			} else if (evt.data.messageType === "ERROR") {
