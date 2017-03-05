@@ -7,10 +7,10 @@ window.addEventListener("message", function(evt) {
 	console.log("aloitettu");
   	if (evt.data !== undefined && evt.data.messageType === "LOAD") {
     	loadedscore = evt.data.gameState.score;
+    	console.log("LOAD responded to!" + evt.data.gameState.score);
    	} else if (evt.data !== undefined && evt.data.messageType === "ERROR") {
    		alert(evt.data.info);
    	}
-   	console.log("LOAD responded to!" + evt.data.gameState.score);
 	});
 
 menu.prototype = {

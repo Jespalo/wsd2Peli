@@ -2,7 +2,7 @@ var preload = function(game){}
  
 preload.prototype = {
 	preload: function(){ 
-		this.game.load.image("loadbar", "kuvat/loadbar.png")
+		this.game.load.spritesheet("loadbar", "kuvat/loadbar.png",32,32)
           var loadingBar = this.add.sprite(160,240,"loadbar");
           loadingBar.anchor.setTo(0.5,0.5);
           this.load.setPreloadSprite(loadingBar);
