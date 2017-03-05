@@ -3,6 +3,15 @@ var menu = function(game){
 	var loadedscore;
 }
 
+window.addEventListener("message", function(evt) {
+	console.log("aloitettu");
+  	if (evt.data !== undefined && evt.data.messageType === "LOAD") {
+    	loadedscore = evt.data.gameState.score;
+   		$("#score").text(points);
+   	} else if (evt.data !== undefined && evt.data.messageType === "ERROR") {
+   		alert(evt.data.info);
+   	}
+	});
 
 menu.prototype = {
 
@@ -28,17 +37,8 @@ menu.prototype = {
   		};
   		window.parent.postMessage(msg, "*");
   		console.log("Ladattu");
-	},
-
-	sendData: function(evt) {
-  		if (evt.data.messageType === "LOAD") {
-    		loadedscore = evt.data.gameState.score;
-   			$("#score").text(points);
-   		} else if (evt.data.messageType === "ERROR") {
-    		alert(evt.data.info);
-  		}
   		console.log(loadedscore);
-		this.game.state.start("Game", true, false, this.loadedscore);
+  		this.game.state.start("Game", true, false, this.loadedscore);
 	},
 
 }

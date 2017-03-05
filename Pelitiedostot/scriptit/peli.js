@@ -1,5 +1,5 @@
 var thegame = function(game){
-	this.score = 0;
+	this.score = this.loadedscore;
 	var scoreText;
 	var player;
 	var cursors;
@@ -117,7 +117,12 @@ create: function() {
 
 
 	// score
-	this.score = this.loadedscore;
+	if(this.loadedscore > 0){
+		this.score = this.loadedscore;
+	}
+	else {
+		this.score = 0;
+	}
 	this.scoreText = 0;
 	this.scoreText = this.game.add.text(10, 10, this.scoreText, {font:'700 24px Cabin', fill: '#ff6200'});
 
@@ -125,6 +130,7 @@ create: function() {
 
 	//
 	this.cursors = this.game.input.keyboard.createCursorKeys();
+	this.updateSpeed = 200;
 
 
 
@@ -227,7 +233,7 @@ update: function() {
 	}
 
 	this.lastUpdate = this.timeStamp();
-	this.updateSpeed = 200 - (this.score*2)
+	this.updateSpeed = 200 - (this.score*2);
 
 	var oldX, oldY;
 	for (var i = 0; i < this.player.length; i++){
