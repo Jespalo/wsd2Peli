@@ -46,7 +46,7 @@ preload.prototype = {
 	},
 
   	create: function(){
-		this.game.state.start("Menu", true, false, this.loadedscore;);
+		this.game.state.start("Menu", true, false, this.loadedscore);
 	}
 
 }
