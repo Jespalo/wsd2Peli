@@ -34,7 +34,6 @@ gameover.prototype = {
     		"score": finalscore
   		};
   		window.parent.postMessage(msg, "*");
-  		alert(msg.score);
 	}
 	
 

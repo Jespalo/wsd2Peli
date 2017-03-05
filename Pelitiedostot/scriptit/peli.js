@@ -23,12 +23,14 @@ thegame.prototype = {
 
 
 
+
 preload: function() {
 	this.game.load.spritesheet('playerpic', 'kuvat/playersprite.png', 32, 32);
 	this.game.load.spritesheet('pickup', 'kuvat/pickupsprite.png', 32, 32);
 	this.game.load.image('background', 'kuvat/background.png');
 	this.game.load.image('saveButton', 'kuvat/saveButton.png');
 },
+
 
 pickupCollect: function(player, pickup) {
 
@@ -198,7 +200,6 @@ takenCoords: function(x, y) {
 },
 
 saveGame: function() {
-	this.game.paused = true;
 	var msg = {
     	"messageType": "SAVE",
     	"gameState": {
@@ -282,18 +283,4 @@ update: function() {
 
 
 },
-
-
-
-
-
-
-};
-
-
-
-
-
-
-
-
+}
