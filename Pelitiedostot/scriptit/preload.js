@@ -18,6 +18,7 @@ preload.prototype = {
 		this.game.load.image("menupic", "kuvat/menupic.png")
 		this.game.load.image("retrypic", "kuvat/retrypic.png")
 		this.game.load.image("submit", "kuvat/submitScore.png")
+		this.game.load.image("load", "kuvat/loadButton.png")
 	},
   	create: function(){
 		this.game.state.start("Menu");

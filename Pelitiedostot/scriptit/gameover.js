@@ -18,7 +18,7 @@ gameover.prototype = {
 
 		var playButton = this.game.add.button(242, 400, "menu", this.backToMenu, this);
 
-		var playButton = this.game.add.button(234, 480, "submit", this.submitScore, this);
+		var playButton = this.game.add.button(192, 480, "submit", this.submitScore, this);
 	},
 	playTheGame: function(){
 		this.game.state.start("Game");

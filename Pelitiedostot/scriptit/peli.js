@@ -117,7 +117,7 @@ create: function() {
 
 
 	// score
-	this.score = 0;
+	this.score = this.loadedscore;
 	this.scoreText = 0;
 	this.scoreText = this.game.add.text(10, 10, this.scoreText, {font:'700 24px Cabin', fill: '#ff6200'});
 
